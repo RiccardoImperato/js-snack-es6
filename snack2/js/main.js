@@ -10,36 +10,42 @@ function getRandomInt(max) {
 const teams = [
     {
         nome: 'Inter',
-        puntiFatti: getRandomInt(90),
-        falliSubiti: getRandomInt(50)
+        puntiFatti: 0,
+        falliSubiti: 0
     },
     {
         nome: 'Milan',
-        puntiFatti: getRandomInt(90),
-        falliSubiti: getRandomInt(50)
+        puntiFatti: 0,
+        falliSubiti: 0
     }, {
         nome: 'Juve',
-        puntiFatti: getRandomInt(90),
-        falliSubiti: getRandomInt(50)
+        puntiFatti: 0,
+        falliSubiti: 0
     }, {
         nome: 'Napoli',
-        puntiFatti: getRandomInt(90),
-        falliSubiti: getRandomInt(50)
+        puntiFatti: 0,
+        falliSubiti: 0
     }, {
         nome: 'Roma',
-        puntiFatti: getRandomInt(90),
-        falliSubiti: getRandomInt(50)
+        puntiFatti: 0,
+        falliSubiti: 0
     },
 ];
+
+// Generazione dati random
+teams.forEach(team => {
+    team.puntiFatti = getRandomInt(100);
+    team.falliSubiti = getRandomInt(50);
+})
 
 console.log(teams);
 
 // Nuovo array con nome e falli subiti
-const teamsFauls = teams.map((element) => {
-    console.log(`Squadra: ${element.nome}
+const teamsFauls = teams.map((team) => {
+    console.log(`Squadra: ${team.nome}
     
-Falli subiti: ${element.falliSubiti}`);
-    return `${element.nome} - ${element.falliSubiti}`;
+Falli subiti: ${team.falliSubiti}`);
+    return `${team.nome} - ${team.falliSubiti}`;
 })
 
 console.log(teamsFauls);
