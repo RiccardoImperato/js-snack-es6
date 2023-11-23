@@ -14,18 +14,38 @@ const bikes = [
     {
         bikeName: 'Verde',
         bikeWeigth: 4
+    },
+    {
+        bikeName: 'Blue',
+        bikeWeigth: 6
+    },
+    {
+        bikeName: 'Gialla',
+        bikeWeigth: 4
     }
-
 ];
 
-// Destruttura oggetti e stampa a schermo
+// Peso  minimo
+let minweight = Number.MAX_VALUE;
+
+for (let i = 0; i < bikes.length; i++) {
+    const bike = bikes[i];
+    if (bike.bikeWeigth < minweight) {
+        minweight = bike.bikeWeigth;
+    }
+};
+
+console.log(minweight);
+
+// Bici più leggera
+const lighterBike = bikes.filter((bike) => {
+    return bike.bikeWeigth === minweight;
+}).map((bike) => `La bici ${bike.bikeName} è la più leggera con un peso di ${bike.bikeWeigth} kg`);
+
+console.log(lighterBike);
+
+
+// Stampa a schermo
 const container = document.querySelector('.container');
 
-bikes.forEach(element => {
-    const { bikeName, bikeWeigth } = element;
-    console.log(`Nome bici: ${bikeName}`);
-    console.log(`Peso: ${bikeWeigth}`);
-})
-
-container.innerHTML = (`<div>La bici più leggera è: ${bikes[1].bikeName},
-che pesa ${bikes[1].bikeWeigth} kg</div>`);
+container.append(lighterBike);
